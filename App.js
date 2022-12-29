@@ -21,28 +21,42 @@ const App = () => {
     let randomNum = Math.floor(Math.random() * data.length);
 
     console.log(randomNum);
+    setPhrase(data[randomNum]);
+    changeImage();
+  }
+
+  const restartCookie = () => {
+    setImage(require('./src/img/cookie.png'));
+    setPhrase('')
   }
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={image}
-        alt="cookie"
-      />
-      <Text>{phrase}</Text>
+      <View>
+        <Image
+          style={styles.image}
+          source={image}
+          alt="cookie"
+        />
+      </View>
 
-      <TouchableOpacity style={styles.buttonWrap} onPress={breakCookie}>
-        <View style={styles.buttonContent}>
-          <Text style={styles.buttonText}>Break Cookie</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.ViewrWrap}>
+        <Text style={styles.text}>{phrase}</Text>
+      </View>
 
-      <TouchableOpacity style={[styles.buttonWrap, { marginTop: 15, borderColor: '#121212' }]}>
-        <View style={styles.buttonContent}>
-          <Text style={[styles.buttonText, { color: '#121212' }]}>Restart Cookie</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.ViewrWrap}>
+        <TouchableOpacity style={styles.buttonWrap} onPress={breakCookie}>
+          <View style={styles.buttonContent}>
+            <Text style={styles.buttonText}>Break Cookie</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.buttonWrap, { marginTop: 15, borderColor: '#121212' }]} onPress={restartCookie}>
+          <View style={styles.buttonContent}>
+            <Text style={[styles.buttonText, { color: '#121212' }]}>Restart Cookie</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -58,6 +72,12 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     height: 300,
+  },
+  text: {
+    color: '#dd7b22',
+    width: 230,
+    fontWeight: 'bold',
+    marginTop: 60,
   },
   buttonWrap: {
     width: 230,
@@ -75,5 +95,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#dd7b22'
+  },
+  ViewrWrap: {
+    flex: 1
   }
 });
