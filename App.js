@@ -20,7 +20,6 @@ const App = () => {
   const breakCookie = () => {
     let randomNum = Math.floor(Math.random() * data.length);
 
-    console.log(randomNum);
     setPhrase(data[randomNum]);
     changeImage();
   }
