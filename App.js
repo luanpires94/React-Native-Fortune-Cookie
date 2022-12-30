@@ -12,8 +12,6 @@ const App = () => {
   const changeImage = () => {
     if (image === require('./src/img/cookie.png')) {
       setImage(require('./src/img/open-cookie.png'));
-    } else {
-      setImage(require('./src/img/cookie.png'));
     }
   }
 
